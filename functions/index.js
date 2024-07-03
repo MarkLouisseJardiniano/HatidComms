@@ -13,8 +13,10 @@ app.use(express.json());
 // MongoDB connection
 const MONGODB_URI = "mongodb+srv://Mawi:Mawi21@cluster0.twni9tv.mongodb.net/Hatid?retryWrites=true&w=majority&appName=Cluster0";
 
+const dbLocalUrl = 'mongodb://localhost:27017/Hatid'
+
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODB_URI || dbLocalUrl)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB", err));
 
