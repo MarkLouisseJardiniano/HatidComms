@@ -19,7 +19,7 @@ mongoose
   .catch((err) => console.error("Error connecting to MongoDB", err));
 
 // Routes
-app.use("/users", userRoutes);
+app.use("/.netlify/functions/users", userRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;
