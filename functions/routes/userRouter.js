@@ -56,12 +56,8 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid password" });
     }
 
-    // Create JWT token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h", // Token expires in 1 hour
-    });
-
-    res.status(200).json({ token });
+    // If you reach here, authentication is successful
+    res.status(200).json({ message: "Login successful" });
   } catch (error) {
     console.error("Error logging in user", error);
     res.status(500).json({ message: "Login failed" });
