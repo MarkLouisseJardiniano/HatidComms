@@ -5,13 +5,8 @@ const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user"); // Ensure the correct path
 
 // Endpoint to get all users (for testing purposes)
-router.get("/", async (req, res) => {
-  try {
-    const users = await UserModel.find();
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+router.get("/", (req, res) => {
+  res.send("User Router");
 });
 
 // Endpoint to register a user
